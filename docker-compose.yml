@@ -1,0 +1,67 @@
+services:
+
+  postgres:
+    image: postgres:16
+    container_name: artsju-db
+    restart: unless-stopped
+
+    environment:
+      POSTGRES_DB: artsju
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+
+    ports:
+      - "5433:5432"
+
+    volumes:
+      - artsju_data:/var/lib/postgresql/data
+
+    networks:
+      - artsju-network
+
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: artsju-pgadmin
+    restart: unless-stopped
+
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@artsju.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+
+    ports:
+      - "5051:80"
+
+    depends_on:
+      - postgres
+
+    networks:
+      - artsju-network
+
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    container_name: artsju-api
+
+    restart: unless-stopped
+
+    ports:
+      - "8080:8080"
+
+    depends_on:
+      - postgres
+
+    networks:
+      - artsju-network
+
+
+volumes:
+  artsju_data:
+
+
+networks:
+  artsju-network:
+    driver: bridge
