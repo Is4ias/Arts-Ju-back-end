@@ -1,11 +1,10 @@
-package model;
+package br.com.artsju_api.model;
 
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 @Entity
 @Table(name = "categorias")

@@ -1,10 +1,8 @@
-package model;
+package br.com.artsju_api.model;
 
 import jakarta.persistence.*;
-import lombok.*;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
 
 import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
@@ -35,7 +33,7 @@ public class Produto {
 
     private String tempoDeProducao;
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "categoria_id", nullable = false)
     private Categoria categoria;
 

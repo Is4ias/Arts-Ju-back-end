@@ -3,11 +3,12 @@ spring:
     name: artsju-api
 
   datasource:
-    url: jdbc:postgresql://postgres:5432/artsju
-    username: postgres
-    password: postgres
+      url: jdbc:postgresql://127.0.0.1:5435/artsju
+      username: postgres
+      password: postgres
+      driver-class-name: org.postgresql.Driver
 
-    jpa:
+  jpa:
       hibernate:
         ddl-auto: update
 

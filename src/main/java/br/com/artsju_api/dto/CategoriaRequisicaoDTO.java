@@ -1,7 +1,6 @@
-package dto;
+package br.com.artsju_api.dto;
 
-public record CategoriaRespostaDTO(
-        Long id,
+public record CategoriaRequisicaoDTO(
         String titulo,
         String descricao,
         String imagem

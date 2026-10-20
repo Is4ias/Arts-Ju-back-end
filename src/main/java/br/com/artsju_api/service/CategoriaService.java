@@ -1,11 +1,11 @@
-package service;
+package br.com.artsju_api.service;
 
-import dto.CategoriaRequisicaoDTO;
-import dto.CategoriaRespostaDTO;
+import br.com.artsju_api.dto.CategoriaRequisicaoDTO;
+import br.com.artsju_api.dto.CategoriaRespostaDTO;
 import lombok.RequiredArgsConstructor;
-import model.Categoria;
+import br.com.artsju_api.model.Categoria;
 import org.springframework.stereotype.Service;
-import repository.CategoriaRepositorio;
+import br.com.artsju_api.repository.CategoriaRepositorio;
 
 import java.util.List;
 
@@ -16,7 +16,7 @@ public class CategoriaService {
     private final CategoriaRepositorio repositorio;
 
     public CategoriaRespostaDTO salvar(CategoriaRequisicaoDTO dto){
-        if(repositorio.getByTitle(dto.titulo())){
+        if(repositorio.existsByTitulo((dto.titulo()))){
             throw new RuntimeException("Categoria existente!");
         }
 
@@ -27,6 +27,7 @@ public class CategoriaService {
                 .build();
 
         Categoria salva = repositorio.save(categoria);
+
         return new CategoriaRespostaDTO(
                 salva.getId(),
                 salva.getTitulo(),

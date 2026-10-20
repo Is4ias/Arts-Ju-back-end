@@ -1,11 +1,11 @@
-package repository;
+package br.com.artsju_api.repository;
 
-import model.Categoria;
+import br.com.artsju_api.model.Categoria;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 
 public interface CategoriaRepositorio extends JpaRepository<Categoria, Long> {
 
-    boolean getByTitle(String title);
+    boolean existsByTitulo(String title);
 
 }
