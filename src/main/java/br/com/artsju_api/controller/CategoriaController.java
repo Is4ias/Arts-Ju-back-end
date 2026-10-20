@@ -3,7 +3,9 @@ package br.com.artsju_api.controller;
 import br.com.artsju_api.dto.CategoriaRequisicaoDTO;
 import br.com.artsju_api.dto.CategoriaRespostaDTO;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 import br.com.artsju_api.service.CategoriaService;
 
@@ -26,7 +28,17 @@ public class CategoriaController {
 
     @GetMapping
     public List<CategoriaRespostaDTO> listarCategorias(){
-
         return categoriaService.listar();
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<CategoriaRespostaDTO> atualizar(@PathVariable Long id, @RequestBody CategoriaRequisicaoDTO dto) {
+        return ResponseEntity.ok(categoriaService.atualizar(id, dto));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deletar(@PathVariable Long id){
+        categoriaService.deletar(id);
+        return ResponseEntity.noContent().build();
     }
 }
