@@ -20,13 +20,13 @@ public class Produto {
     @GeneratedValue( strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(name = "Titulo", nullable = false)
     private String titulo;
 
-    @Column( columnDefinition = "TEXT")
+    @Column(columnDefinition = "TEXT")
     private String descricao;
 
-    @Column(nullable = false)
+    @Column(name= "Preco" ,nullable = false)
     private BigDecimal price;
 
     private String imagem;

@@ -9,4 +9,6 @@ public interface ProdutoRepositorio extends JpaRepository<Produto, Long> {
 
     //para retornar via GET apenas todos os produtos de uma determinada categoria
     List<Produto> findByCategoriaId(Long categoriaId);
+
+    boolean existsByCategoria_Id(Long categoriaId);
 }
