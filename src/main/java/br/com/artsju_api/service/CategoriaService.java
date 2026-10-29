@@ -1,7 +1,7 @@
 package br.com.artsju_api.service;
 
-import br.com.artsju_api.dto.CategoriaRequisicaoDTO;
-import br.com.artsju_api.dto.CategoriaRespostaDTO;
+import br.com.artsju_api.controller.dto.CategoriaRequisicaoDTO;
+import br.com.artsju_api.controller.dto.CategoriaRespostaDTO;
 import br.com.artsju_api.repository.ProdutoRepositorio;
 import lombok.RequiredArgsConstructor;
 import br.com.artsju_api.model.Categoria;

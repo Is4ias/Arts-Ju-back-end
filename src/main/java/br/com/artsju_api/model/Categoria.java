@@ -19,10 +19,10 @@ public class Categoria {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column( name = "Título", nullable = false, unique = true)
+    @Column(name = "Titulo", nullable = false, unique = true)
     private String titulo;
 
-    @Column( name = "Descrição", columnDefinition = "TEXT", length = 1000)
+    @Column(name = "Descricao", columnDefinition = "TEXT", length = 1000)
     private String descricao;
 
     private String imagem;

@@ -1,11 +1,10 @@
 package br.com.artsju_api.controller;
 
-import br.com.artsju_api.dto.CategoriaRequisicaoDTO;
-import br.com.artsju_api.dto.CategoriaRespostaDTO;
+import br.com.artsju_api.controller.dto.CategoriaRequisicaoDTO;
+import br.com.artsju_api.controller.dto.CategoriaRespostaDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 import br.com.artsju_api.service.CategoriaService;
 
