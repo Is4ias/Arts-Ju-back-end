@@ -1,4 +1,4 @@
-package br.com.artsju_api.dto;
+package br.com.artsju_api.controller.dto;
 
 public record CategoriaRespostaDTO(
         Long id,
