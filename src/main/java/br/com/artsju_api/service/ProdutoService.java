@@ -24,7 +24,7 @@ public class ProdutoService {
         Produto produto = new Produto();
         produto.setTitulo(dto.titulo());
         produto.setDescricao(dto.descricao());
-        produto.setPrice(dto.price());
+        produto.setPreco(dto.preco());
         produto.setImagem(dto.imagem());
 
         Produto produtoSalvo = produtoRepositorio.save(produto);
@@ -48,7 +48,7 @@ public class ProdutoService {
 
         produtoExistente.setTitulo(dto.titulo());
         produtoExistente.setDescricao(dto.descricao());
-        produtoExistente.setPrice(dto.price());
+        produtoExistente.setPreco(dto.preco());
         produtoExistente.setImagem(dto.imagem());
 
         Produto produtoAtualizado = produtoRepositorio.save(produtoExistente);
@@ -66,7 +66,7 @@ public class ProdutoService {
                 produto.getId(),
                 produto.getTitulo(),
                 produto.getDescricao(),
-                produto.getPrice(),
+                produto.getPreco(),
                 produto.getTempoDeProducao(),
                 produto.getImagem(),
                 produto.getCategoria() != null ? produto.getCategoria().getId() : null

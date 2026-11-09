@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
+@Table(name = "produto")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -20,23 +21,22 @@ public class Produto {
     @GeneratedValue( strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "Titulo", nullable = false)
+    @Column(name = "titulo", nullable = false)
     private String titulo;
 
-    @Column(columnDefinition = "TEXT")
+    @Column(name="descricao", columnDefinition = "TEXT")
     private String descricao;
 
-    @Column(name= "Preco" ,nullable = false)
-    private BigDecimal price;
+    @Column(name= "preco" ,nullable = false)
+    private BigDecimal preco;
 
+    @Column(name="imagem")
     private String imagem;
 
+    @Column(name = "tempo_de_producao")
     private String tempoDeProducao;
 
     @ManyToOne
     @JoinColumn(name = "categoria_id", nullable = false)
     private Categoria categoria;
-
-
-
 }

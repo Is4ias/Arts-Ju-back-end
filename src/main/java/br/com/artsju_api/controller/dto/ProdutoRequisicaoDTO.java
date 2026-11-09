@@ -15,7 +15,7 @@ public record ProdutoRequisicaoDTO(
         String descricao,
 
         @NotNull(message = "O preço do produto é obrigatório!")
-        BigDecimal price,
+        BigDecimal preco,
 
         String imagem,
 
