@@ -18,14 +18,22 @@ import java.util.Optional;
 public class ProdutoService {
 
     private final ProdutoRepositorio produtoRepositorio;
-    //private final CategoriaRepositorio categoriaRepositorio;
+    private final CategoriaRepositorio categoriaRepositorio;
 
     public ProdutoRespostaDTO cadastrar(ProdutoRequisicaoDTO dto){
+
+        Categoria categoria = categoriaRepositorio.findById(dto.categoriaId()).orElseThrow(
+                () -> new IllegalArgumentException(
+                        "Categoria não encontrada com o ID: " + dto.categoriaId())
+        );
+
         Produto produto = new Produto();
         produto.setTitulo(dto.titulo());
         produto.setDescricao(dto.descricao());
         produto.setPreco(dto.preco());
+        produto.setTempoDeProducao(dto.tempoDeProducao());
         produto.setImagem(dto.imagem());
+        produto.setCategoria(categoria);
 
         Produto produtoSalvo = produtoRepositorio.save(produto);
         return converterParaDTO(produtoSalvo);

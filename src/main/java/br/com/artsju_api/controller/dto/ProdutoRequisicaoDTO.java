@@ -17,9 +17,12 @@ public record ProdutoRequisicaoDTO(
         @NotNull(message = "O preço do produto é obrigatório!")
         BigDecimal preco,
 
+        @NotNull(message = "O tempo de produção é obrigatorio!")
+        String tempoDeProducao,
+
         String imagem,
 
         @NotNull(message = "O ID da categoria é obrigatório!")
-        Categoria categoria
+        Long categoriaId
 ) {
 }
